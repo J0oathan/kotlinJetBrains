@@ -41,6 +41,7 @@ object Build : BuildType({
 
     steps {
         maven {
+            name = "my custom step name"
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
