@@ -30,6 +30,7 @@ version = "2023.05"
 project {
 
     buildType(Build)
+    buildType(ReciclyBin)
 }
 
 object Build : BuildType({
@@ -56,4 +57,8 @@ object Build : BuildType({
         perfmon {
         }
     }
+})
+
+object ReciclyBin : BuildType({
+    name = "Recicly bin"
 })
