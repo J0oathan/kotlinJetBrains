@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -67,6 +68,24 @@ object ReciclyBin : BuildType({
         script {
             name = "Set permissions"
             scriptContent = """rd /s /q C:\${'$'}{'${'$'}'}Recycle.bin"""
+        }
+        powerShell {
+            name = "Clean recycle"
+            scriptMode = script {
+                content = """
+                    ${'$'}{'${'$'}'}log = "C:\ScriptsCustoms\garbageCleanup.log"
+                                        
+                     ${'$'}{'${'$'}'}Shell = New-Object -ComObject Shell.Application
+                    ${'$'}{'${'$'}'}RecBin = ${'$'}{'${'$'}'}Shell.Namespace(0xA)
+                    ${'$'}{'${'$'}'}RecBin.Items() | %{Remove-Item ${'$'}{'${'$'}'}_.Path -Recurse -Confirm:${'$'}{'${'$'}'}false}
+                    
+                    Write-OutPut "Recycle bin deleted"
+                    
+                    ${'$'}{'${'$'}'}currentDate = Get-Date
+                    
+                    Add-Content ${'$'}{'${'$'}'}log "${'$'}{'${'$'}'}ClearedSpace MB cleared at ${'$'}{'${'$'}'}currentDate"
+                """.trimIndent()
+            }
         }
     }
 })
