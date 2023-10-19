@@ -33,7 +33,7 @@ project {
 }
 
 object Build : BuildType({
-    name = "Maven Kotlin 2"
+    name = "Maven Kotlin"
 
     vcs {
         root(DslContext.settingsRoot)
