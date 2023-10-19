@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -62,4 +63,24 @@ object Build : BuildType({
 object TestSecondBc : BuildType({
     name = "Test second BC"
     description = "Create new file"
+
+    steps {
+        powerShell {
+            scriptMode = script {
+                content = """
+                    ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
+                     
+                    #Check if file exists
+                    if (Test-Path ${'$'}FilePath) {
+                        Write-host "File '${'$'}FilePath' already exists!" -f Yellow
+                    }
+                    Else {
+                        #Create a new file
+                        New-Item -Path ${'$'}FilePath -ItemType "File"
+                        Write-host "New File '${'$'}FilePath' Created!" -f Green
+                    }
+                """.trimIndent()
+            }
+        }
+    }
 })
