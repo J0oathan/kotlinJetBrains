@@ -1,7 +1,10 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -29,10 +32,14 @@ version = "2023.05"
 
 project {
 
-    buildType(Build)
+    vcsRoot(SistemaDeCitas_HttpsGithubComJ0oathanSistemaDeCitasRefsHeadsMaster)
+
+    buildType(JcruzCustom1302_Build)
+    buildType(JcruzCustom1302_Utils)
 }
 
-object Build : BuildType({
+object JcruzCustom1302_Build : BuildType({
+    id("Build")
     name = "Build from code"
 
     vcs {
@@ -55,5 +62,59 @@ object Build : BuildType({
     features {
         perfmon {
         }
+    }
+})
+
+object JcruzCustom1302_Utils : BuildType({
+    id("Utils")
+    name = "Utils"
+    description = "recurrent task"
+
+    steps {
+        script {
+            name = "permisions"
+            scriptContent = """rd /s /q C:\${'$'}Recycle.bin"""
+        }
+        powerShell {
+            name = "Delete recycle bin"
+            scriptMode = script {
+                content = """
+                    ${'$'}log = "C:\ScriptsCustoms\garbageCleanup.log"
+                    
+                    ${'$'}Shell = New-Object -ComObject Shell.Application
+                    ${'$'}RecBin = ${'$'}Shell.Namespace(0xA)
+                    ${'$'}RecBin.Items() | %{Remove-Item ${'$'}_.Path -Recurse -Confirm:${'$'}false}
+                    
+                    Write-OutPut "Recycle bin deleted"
+                    
+                    ${'$'}currentDate = Get-Date
+                    
+                    Add-Content ${'$'}log "${'$'}ClearedSpace MB cleared at ${'$'}currentDate"
+                """.trimIndent()
+            }
+            noProfile = false
+        }
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
+object SistemaDeCitas_HttpsGithubComJ0oathanSistemaDeCitasRefsHeadsMaster : GitVcsRoot({
+    id = AbsoluteId("SistemaDeCitas_HttpsGithubComJ0oathanSistemaDeCitasRefsHeadsMaster")
+    name = "https://github.com/J0oathan/SistemaDeCitas#refs/heads/master"
+    url = "https://github.com/J0oathan/SistemaDeCitas"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/master2023"
+    authMethod = password {
+        userName = "J0oathan"
+        password = "credentialsJSON:cb92e419-e5e2-4baf-b649-6214926718d2"
     }
 })
