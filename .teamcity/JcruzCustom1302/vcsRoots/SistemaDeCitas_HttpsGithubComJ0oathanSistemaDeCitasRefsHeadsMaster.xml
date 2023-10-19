@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="e22e0884-66d1-40c7-8212-58a9509e5f7e" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>https://github.com/J0oathan/SistemaDeCitas#refs/heads/master</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="refs/heads/master" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="secure:password" value="credentialsJSON:cb92e419-e5e2-4baf-b649-6214926718d2" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="teamcity:branchSpec" value="refs/heads/master2023" />
+  <param name="url" value="https://github.com/J0oathan/SistemaDeCitas" />
+  <param name="useAlternates" value="AUTO" />
+  <param name="username" value="J0oathan" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+
