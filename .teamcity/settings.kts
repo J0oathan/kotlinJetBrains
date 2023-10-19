@@ -30,6 +30,7 @@ version = "2023.05"
 project {
 
     buildType(Build)
+    buildType(TestSecondBc)
 }
 
 object Build : BuildType({
@@ -56,4 +57,9 @@ object Build : BuildType({
         perfmon {
         }
     }
+})
+
+object TestSecondBc : BuildType({
+    name = "Test second BC"
+    description = "Create new file"
 })
