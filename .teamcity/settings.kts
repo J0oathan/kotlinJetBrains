@@ -41,7 +41,7 @@ object Build : BuildType({
         root(DslContext.settingsRoot)
     }
 
-    steps {
+    stepsPropertyBad {
         maven {
             name = "my custom step name"
             goals = "clean test"
