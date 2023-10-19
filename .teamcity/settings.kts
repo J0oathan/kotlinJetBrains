@@ -40,7 +40,7 @@ project {
 
 object JcruzCustom1302_Build : BuildType({
     id("Build")
-    name = "Build from code"
+    name = "Maven Kotlin"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -107,3 +107,14 @@ object JcruzCustom1302_Utils : BuildType({
     }
 })
 
+object SistemaDeCitas_HttpsGithubComJ0oathanSistemaDeCitasRefsHeadsMaster : GitVcsRoot({
+    id = AbsoluteId("SistemaDeCitas_HttpsGithubComJ0oathanSistemaDeCitasRefsHeadsMaster")
+    name = "https://github.com/J0oathan/SistemaDeCitas#refs/heads/master"
+    url = "https://github.com/J0oathan/SistemaDeCitas"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/master2023"
+    authMethod = password {
+        userName = "J0oathan"
+        password = "credentialsJSON:cb92e419-e5e2-4baf-b649-6214926718d2"
+    }
+})
