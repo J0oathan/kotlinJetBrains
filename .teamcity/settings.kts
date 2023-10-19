@@ -82,22 +82,5 @@ object TestSecondBc : BuildType({
                 """.trimIndent()
             }
         }
-        powerShell {
-            scriptMode = script {
-                content = """
-                    ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
-                     
-                    #Check if file exists
-                    if (Test-Path ${'$'}FilePath) {
-                        Write-host "File '${'$'}FilePath' already exists!" -f Yellow
-                    }
-                    Else {
-                        #Create a new file
-                        New-Item -Path ${'$'}FilePath -ItemType "File"
-                        Write-host "New File '${'$'}FilePath' Created!" -f Green
-                    }
-                """.trimIndent()
-            }
-        }
     }
 })
