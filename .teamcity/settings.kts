@@ -94,10 +94,6 @@ object TestSecondBc : BuildType({
     name = "Test second BC"
     description = "Create new file"
 
-    vcs {
-        root(HttpsGithubComJ0oathanPokemonsRefsHeadsMaster)
-    }
-
     steps {
         powerShell {
             scriptMode = script {
