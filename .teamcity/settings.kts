@@ -92,7 +92,7 @@ object Build : BuildType({
 })
 
 object TestSecondBc : BuildType({
-    name = "Test second BC 2023"
+    name = "simulation production code version 2023"
     description = "Create new file"
 
     vcs {
