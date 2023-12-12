@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketCloudConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.githubAppConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -47,6 +48,15 @@ project {
             displayName = "GitHub.com"
             clientId = "J0oathan"
             clientSecret = "credentialsJSON:28f48ddb-9392-414d-8732-cfe9f52c6d00"
+        }
+        githubAppConnection {
+            id = "PROJECT_EXT_4"
+            displayName = "TeamCityCustomJcruz"
+            appId = "693873"
+            clientId = "Iv1.f9c86dfa817d84cb"
+            clientSecret = "credentialsJSON:67ccfc65-55a8-47bc-ad4d-addf5dfec753"
+            privateKey = "credentialsJSON:a21e8d67-95f0-4ddf-8286-9ab11295f1c4"
+            ownerUrl = "https://github.com/J0oathan"
         }
     }
 }
