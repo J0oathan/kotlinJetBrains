@@ -35,6 +35,7 @@ version = "2023.11"
 project {
 
     vcsRoot(HttpsGithubComJ0oathanPokemonsRefsHeadsMaster)
+    vcsRoot(Hola)
 
     buildType(Build)
     buildType(TestSecondBc)
@@ -94,6 +95,10 @@ object TestSecondBc : BuildType({
     name = "Test second BC"
     description = "Create new file"
 
+    vcs {
+        root(Hola)
+    }
+
     steps {
         powerShell {
             scriptMode = script {
@@ -129,6 +134,21 @@ object TestSecondBc : BuildType({
                 """.trimIndent()
             }
         }
+    }
+})
+
+object Hola : GitVcsRoot({
+    name = "hola"
+    url = "https://github.com/J0oathan/pokemons2"
+    branch = "release/2023.x"
+    branchSpec = """
+        +:refs/heads/FT/*
+        +:refs/heads/BF/*
+        +:refs/heads/*
+    """.trimIndent()
+    authMethod = token {
+        userName = "oauth2"
+        tokenId = "tc_token_id:CID_be335eb4b881cf69fe03c3750742d1fc:-1:c11ac663-a81c-4739-bbe3-35a295d5fb96"
     }
 })
 
