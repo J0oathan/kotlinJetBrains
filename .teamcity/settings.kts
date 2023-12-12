@@ -116,6 +116,23 @@ object TestSecondBc : BuildType({
                 """.trimIndent()
             }
         }
+        powerShell {
+            name = "get log"
+            id = "get_log"
+            scriptMode = script {
+                content = """
+                    ${'$'}mail = git log -1 --pretty=format:'%ae'
+                    ${'$'}name = git log -1 --pretty=format:'%an'
+                    ${'$'}commit = git log -1 --pretty=format:'%cn'
+                    ${'$'}Date = git log -1 --pretty=format:'%ai'
+                    
+                    Write-Host "mail" ${'$'}mail
+                    Write-Host "name" ${'$'}name
+                    Write-Host "commit" ${'$'}commit
+                    Write-Host "Date" ${'$'}Date
+                """.trimIndent()
+            }
+        }
     }
 })
 
