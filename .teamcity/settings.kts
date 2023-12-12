@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketCloudConnec
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubAppConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -32,6 +33,8 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2023.11"
 
 project {
+
+    vcsRoot(HttpsGithubComJ0oathanPokemonsRefsHeadsMaster)
 
     buildType(Build)
     buildType(TestSecondBc)
@@ -91,6 +94,10 @@ object TestSecondBc : BuildType({
     name = "Test second BC"
     description = "Create new file"
 
+    vcs {
+        root(HttpsGithubComJ0oathanPokemonsRefsHeadsMaster)
+    }
+
     steps {
         powerShell {
             scriptMode = script {
@@ -109,5 +116,16 @@ object TestSecondBc : BuildType({
                 """.trimIndent()
             }
         }
+    }
+})
+
+object HttpsGithubComJ0oathanPokemonsRefsHeadsMaster : GitVcsRoot({
+    name = "https://github.com/J0oathan/pokemons#refs/heads/master"
+    url = "https://github.com/J0oathan/pokemons"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/*"
+    authMethod = token {
+        userName = "oauth2"
+        tokenId = "tc_token_id:CID_be335eb4b881cf69fe03c3750742d1fc:-1:b0951779-991a-4a78-9da1-9ea328dba38b"
     }
 })
