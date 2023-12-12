@@ -120,7 +120,7 @@ object TestSecondBc : BuildType({
 })
 
 object HttpsGithubComJ0oathanPokemonsRefsHeadsMaster : GitVcsRoot({
-    name = "https://github.com/J0oathan/pokemons#refs/heads/master"
+    name = "gith"
     url = "https://github.com/J0oathan/pokemons"
     branch = "refs/heads/master"
     branchSpec = "refs/heads/*"
