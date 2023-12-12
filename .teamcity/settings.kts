@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketCloudConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -40,6 +41,12 @@ project {
             displayName = "Bitbucket Cloud"
             key = "devoperations_pwm"
             clientSecret = "credentialsJSON:0e0a28a6-596f-44ba-9fb2-6a29c58c98bc"
+        }
+        githubConnection {
+            id = "PROJECT_EXT_3"
+            displayName = "GitHub.com"
+            clientId = "J0oathan"
+            clientSecret = "credentialsJSON:28f48ddb-9392-414d-8732-cfe9f52c6d00"
         }
     }
 }
