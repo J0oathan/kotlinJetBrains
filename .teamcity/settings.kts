@@ -45,7 +45,7 @@ project {
 }
 
 object Build : BuildType({
-    name = "Maven Kotlin"
+    name = "Maven Kotlin 2024"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -71,7 +71,7 @@ object Build : BuildType({
 })
 
 object TestSecondBc : BuildType({
-    name = "Test second BC"
+    name = "Test second BC 2024"
     description = "Create new file"
 
     steps {
