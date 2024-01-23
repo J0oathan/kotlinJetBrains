@@ -154,12 +154,6 @@ object TestSecondBc : BuildType({
             }
         }
     }
-
-    triggers {
-        vcs {
-            branchFilter = "+:release/*"
-        }
-    }
 })
 
 object Hola : GitVcsRoot({
