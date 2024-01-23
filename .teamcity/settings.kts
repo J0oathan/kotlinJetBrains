@@ -71,7 +71,7 @@ object Build : BuildType({
 })
 
 object TestSecondBc : BuildType({
-    name = "Test second BC 2024"
+    name = "Only 1 build step"
     description = "Create new file"
 
     steps {
