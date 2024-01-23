@@ -118,11 +118,11 @@ object TestSecondBc : BuildType({
             }
         }
         powerShell {
-            name = "New build step"
+            name = "PowerShell 2"
             id = "jetbrains_powershell"
             scriptMode = script {
                 content = """
-                    ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
+                    ${'$'}FilePath = "C:\ScriptsCustoms\Secondfile.txt"
                      
                     #Check if file exists
                     if (Test-Path ${'$'}FilePath) {
