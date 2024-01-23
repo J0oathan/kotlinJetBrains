@@ -78,7 +78,7 @@ object TestSecondBc : BuildType({
         powerShell {
             scriptMode = script {
                 content = """
-                    ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
+                    ${'$'}FilePath = "C:\ScriptsCustoms\MyFile2.txt"
                      
                     #Check if file exists
                     if (Test-Path ${'$'}FilePath) {
