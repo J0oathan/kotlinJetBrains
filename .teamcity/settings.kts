@@ -80,7 +80,7 @@ object TestSecondBc : BuildType({
                 content = """
                     ${'$'}FilePath = "C:\ScriptsCustoms\MyFile2.txt"
 
-                    Write-host "Setup 2024 version" 
+                    Write-host "Setup 2019 version" 
                      
                     #Check if file exists
                     if (Test-Path ${'$'}FilePath) {
