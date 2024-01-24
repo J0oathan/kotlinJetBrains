@@ -163,7 +163,7 @@ object TestSecondBc : BuildType({
         schedule {
             schedulingPolicy = daily {
                 hour = 10
-                minute = 25
+                minute = 30
             }
             branchFilter = "+:release/2019.0"
             triggerBuild = always()
