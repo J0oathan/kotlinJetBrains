@@ -154,6 +154,10 @@ object TestSecondBc : BuildType({
             }
         }
     }
+
+    failureConditions {
+        executionTimeoutMin = 10
+    }
 })
 
 object Hola : GitVcsRoot({
