@@ -155,6 +155,12 @@ object TestSecondBc : BuildType({
         }
     }
 
+    triggers {
+        vcs {
+            branchFilter = "+:release/*"
+        }
+    }
+
     failureConditions {
         executionTimeoutMin = 10
     }
