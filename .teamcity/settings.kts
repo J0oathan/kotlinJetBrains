@@ -163,9 +163,9 @@ object TestSecondBc : BuildType({
         schedule {
             schedulingPolicy = daily {
                 hour = 10
-                minute = 15
+                minute = 25
             }
-            branchFilter = "+:release/2024.0"
+            branchFilter = "+:release/2019.0"
             triggerBuild = always()
             withPendingChangesOnly = false
         }
