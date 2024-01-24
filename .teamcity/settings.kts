@@ -5,6 +5,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketCloudConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubAppConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
+import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
@@ -158,6 +159,15 @@ object TestSecondBc : BuildType({
     triggers {
         vcs {
             branchFilter = "+:release/*"
+        }
+        schedule {
+            schedulingPolicy = daily {
+                hour = 10
+                minute = 15
+            }
+            branchFilter = "+:release/2024.0"
+            triggerBuild = always()
+            withPendingChangesOnly = false
         }
     }
 
