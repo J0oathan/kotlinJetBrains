@@ -102,7 +102,7 @@ object TestSecondBc : BuildType({
 
     steps {
         powerShell {
-            name = "test"
+            name = "Leslie"
             scriptMode = script {
                 content = """
                     ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
