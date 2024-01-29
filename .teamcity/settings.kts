@@ -158,6 +158,7 @@ object TestSecondBc : BuildType({
 
     triggers {
         vcs {
+            enabled = false
             branchFilter = "+:release/*"
         }
         schedule {
