@@ -162,6 +162,7 @@ object TestSecondBc : BuildType({
             branchFilter = "+:release/*"
         }
         schedule {
+            enabled = false
             schedulingPolicy = daily {
                 hour = 11
                 minute = 55
