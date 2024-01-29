@@ -102,6 +102,7 @@ object TestSecondBc : BuildType({
 
     steps {
         powerShell {
+            name = "test"
             scriptMode = script {
                 content = """
                     ${'$'}FilePath = "C:\ScriptsCustoms\MyFile.txt"
